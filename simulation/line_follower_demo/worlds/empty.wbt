@@ -1,0 +1,92 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "../protos/TrackOne.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.14181262466785421 0.9683970098400839 -0.20517409879806642 1.239756490858503
+  position -0.725789928629573 0.28145320974467536 1.6602107117517224
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorTileSize 1 1
+  floorAppearance PBRAppearance {
+    roughness 1
+    roughnessMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/parquetry/chequered_parquetry_roughness.jpg"
+      ]
+    }
+    metalness 0
+    normalMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/parquetry/chequered_parquetry_normal.jpg"
+      ]
+    }
+    occlusionMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/parquetry/chequered_parquetry_occlusion.jpg"
+      ]
+    }
+  }
+}
+E-puck {
+  hidden position_0_0 435.00528388108887
+  hidden position_0_1 486.6606761127335
+  hidden linearVelocity_0 1.4271262629795754e-16 -3.748901937906373e-15 -4.2632564145606015e-16
+  hidden angularVelocity_0 -1.758140082829236e-13 -1.5779037223127833e-14 -3.1738542742360467e-15
+  hidden rotation_1 0 1 0 4.206152455015458
+  hidden linearVelocity_1 -3.580301857444642e-17 -5.181834939102785e-15 1.6876969614409404e-15
+  hidden angularVelocity_1 3.0650286881176374e-14 -1.2574821688312461e-14 -3.2619640724848384e-15
+  hidden rotation_2 0 1 0 5.238642270849115
+  hidden linearVelocity_2 -1.855348694223667e-16 -4.914627227921048e-16 -7.99071974632462e-16
+  hidden angularVelocity_2 1.251750195534769e-13 9.347642479017759e-15 -3.172481776087119e-15
+  translation 0.19695510917035575 0.0033735501924479785 -6.396199578829163e-05
+  rotation 3.146621708736346e-13 -1.0630560983195863e-11 -1 3.0814898446802017
+  controller "follower"
+  customData "3"
+  battery [
+    0
+  ]
+  groundSensorsSlot [
+    DistanceSensor {
+      translation 0 -0.025 0
+      rotation 0 -1 0 -1.5707996938995747
+      name "right_most"
+    }
+    DistanceSensor {
+      translation 0 0.025 0
+      rotation 0 -1 0 -1.5707996938995747
+      name "left_most"
+      type "infra-red"
+    }
+    DistanceSensor {
+      rotation 0 -1 0 -1.5707996938995747
+      name "ir_centre"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0 0.015 0
+      rotation 0 -1 0 -1.5707996938995747
+      name "ir_left"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0 -0.015 0
+      rotation 0 -1 0 -1.5707996938995747
+      name "ir_right"
+      type "infra-red"
+    }
+  ]
+}
+TrackOne {
+  translation 0 0 0.0001
+}

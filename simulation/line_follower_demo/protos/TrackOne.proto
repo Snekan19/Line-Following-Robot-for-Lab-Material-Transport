@@ -1,0 +1,120 @@
+#VRML_SIM R2023b utf8
+
+PROTO TrackOne [
+  field SFVec3f    translation  0 0 0
+  field SFRotation rotation     0 0 1 0
+  field SFString   name         "track_one"
+  field SFFloat    arenaSize    1.0
+]
+{
+  Solid {
+    translation IS translation
+    rotation IS rotation
+    children [
+      # Black line paths
+      Transform {
+        translation 0 0.001 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 0.8
+              metalness 0
+            }
+            geometry IndexedFaceSet {
+              coord Coordinate {
+                point [
+                  # Center line - Vertical
+                  -0.01 -0.33 0    # 0
+                  0.01 -0.33 0     # 1
+                  0.01 0.33 0      # 2
+                  -0.01 0.33 0     # 3
+                  
+                  # Horizontal line - Top (left half only)
+                  -0.33 0.32 0     # 4
+                  0.01 0.32 0      # 5
+                  0.01 0.34 0      # 6
+                  -0.33 0.34 0     # 7
+                  
+                  # Horizontal line - Bottom (left half only)
+                  -0.33 -0.34 0    # 8
+                  0.01 -0.34 0     # 9
+                  0.01 -0.32 0     # 10
+                  -0.33 -0.32 0    # 11
+                  
+                  # Top-Left corner room (outer square at corner) - 0.33m size
+                  -0.49 0.17 0     # 12
+                  -0.17 0.17 0     # 13
+                  -0.17 0.49 0     # 14
+                  -0.49 0.49 0     # 15
+                  # Inner square
+                  -0.47 0.19 0     # 16
+                  -0.19 0.19 0     # 17
+                  -0.19 0.47 0     # 18
+                  -0.47 0.47 0     # 19
+                  
+                  # Bottom-Left corner room (outer square at corner) - 0.33m size
+                  -0.49 -0.49 0    # 20
+                  -0.17 -0.49 0    # 21
+                  -0.17 -0.17 0    # 22
+                  -0.49 -0.17 0    # 23
+                  # Inner square
+                  -0.47 -0.47 0    # 24
+                  -0.19 -0.47 0    # 25
+                  -0.19 -0.19 0    # 26
+                  -0.47 -0.19 0    # 27
+                  
+                  # Left-Center room - 0.33m size (same as corner rooms)
+                  -0.49 -0.165 0   # 28
+                  -0.17 -0.165 0   # 29
+                  -0.17 0.165 0    # 30
+                  -0.49 0.165 0    # 31
+                  # Inner square
+                  -0.47 -0.145 0   # 32
+                  -0.19 -0.145 0   # 33
+                  -0.19 0.145 0    # 34
+                  -0.47 0.145 0    # 35
+                  
+                  # Connection line - Left-Center to right (extended)
+                  -0.33 -0.01 0    # 36
+                  0.17 -0.01 0     # 37
+                  0.17 0.01 0      # 38
+                  -0.33 0.01 0     # 39
+                ]
+              }
+              coordIndex [
+                # Center line - Vertical
+                0 1 2 3 -1
+                
+                # Horizontal line - Top
+                4 5 6 7 -1
+                
+                # Horizontal line - Bottom
+                8 9 10 11 -1
+                
+                # Top-Left room outline (removed bottom segment)
+                12 13 17 16 -1
+                14 15 19 18 -1
+                15 12 16 19 -1
+                
+                # Bottom-Left room outline (removed top segment)
+                20 21 25 24 -1
+                22 23 27 26 -1
+                23 20 24 27 -1
+                
+                # Left-Center room outline (all 3 sides, removed right)
+                28 29 33 32 -1
+                30 31 35 34 -1
+                31 28 32 35 -1
+                
+                # Connection - Left-Center
+                36 37 38 39 -1
+              ]
+            }
+          }
+        ]
+      }
+    ]
+    name IS name
+  }
+}
